@@ -23,6 +23,7 @@ if (redirect) {
 <BaseLayout
   title={redirect ? `跳转到 ${redirect.name}` : '链接不存在 - 机场指南'}
   description={redirect ? redirect.description : '您访问的跳转链接不存在。'}
+  noindex={true}
 >
   <Header />
 

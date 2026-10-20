@@ -75,12 +75,13 @@ export const articles: Article[] = [
   },
   {
     slug: 'ios-shadowrocket-guide',
-    title: 'iOS Shadowrocket 小火箭配置指南',
-    description: '完整的 Shadowrocket 使用教程，包括美区 Apple ID 获取、订阅导入、规则分流与常见问题。',
+    title: '免费美区ID共享与 iOS Shadowrocket 小火箭配置指南',
+    description: '从免费美区 Apple ID 获取与安全登录开始，完整讲解 Shadowrocket 小火箭下载、机场订阅一键导入、规则分流与常见问题。',
     category: '客户端教程',
-    tags: ['iOS', 'Shadowrocket', '客户端配置'],
+    tags: ['免费美区ID共享', 'iOS', 'Shadowrocket', '小火箭机场推荐', '客户端一键导入'],
     author: '技术团队',
     publishDate: '2026-02-05',
+    updateDate: '2026-10-20',
     featured: true,
   },
   {

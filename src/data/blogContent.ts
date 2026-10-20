@@ -352,12 +352,12 @@ macOS 拥有极佳的性能与优雅的交互体验。然而，对于使用搭�
 `,
 
   'ios-shadowrocket-guide': `
-<h2>一、引言：iOS 平台首选科学上网神器——Shadowrocket (小火箭)</h2>
+<h2>一、免费美区ID共享与 Shadowrocket（小火箭）下载说明</h2>
 <p>
 在 iPhone 与 iPad 设备上，<strong>Shadowrocket（俗称小火箭）</strong> 凭借其强大的协议支持、稳定的后台运行、极佳的省电优化以及极其简便的操作，成为了 iOS 用户的绝对首选。
 </p>
 <p>
-由于苹果 App Store 的区域限制，Shadowrocket 未在国区上架。本教程将为您提供从<strong>获取非国区 Apple ID、下载小火箭、一键导入机场订阅、规则分流配置，到进阶重写脚本</strong>的 3000 字全流程使用指南。
+由于苹果 App Store 的区域限制，Shadowrocket 未在国区上架。本教程以<strong>免费美区ID共享</strong>为入口，提供从获取非国区 Apple ID、下载小火箭、一键导入机场订阅、规则分流配置，到进阶重写脚本的完整流程。共享账号可能随时失效，仅建议用于临时下载；长期使用请注册自己的美区 Apple ID。
 </p>
 
 <h2>二、准备工作：获取非国区 (美区/港区) Apple ID</h2>
@@ -367,7 +367,7 @@ macOS 拥有极佳的性能与优雅的交互体验。然而，对于使用搭�
 <ol class="list-decimal pl-5 space-y-2">
   <li>打开 iPhone 上的 <strong>App Store</strong>，点击右上角头像。</li>
   <li>滑到最底部，点击“退出登录 (Sign Out)”。</li>
-  <li>在顶部输入获取的美区 Apple ID 账号与密码（若没有可参考本站 <a href="/apple-id/">Apple ID 获取指引</a>）。</li>
+  <li>在顶部输入获取的美区 Apple ID 账号与密码（若没有可参考本站 <a href="../../apple-id/index.html">免费美区ID共享与获取指引</a>）。</li>
   <li>登录成功后，App Store 界面会自动切换至英文（美区）。在搜索栏输入 <code>Shadowrocket</code>（认准图标为蓝色背景、白色小火箭），购买并下载安装。</li>
 </ol>
 
