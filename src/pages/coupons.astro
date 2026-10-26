@@ -1,0 +1,551 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import LeftSidebar from '@/components/LeftSidebar.astro';
+import RightSidebar from '@/components/RightSidebar.astro';
+import { coupons } from '@/data/coupons';
+
+---
+
+<BaseLayout
+  title="2026 翻墙机场优惠码大全：常用机场专属折扣券与使用方法"
+  description="整理 EdgeNova、极连云、快狸、速界、可信云、云图与光年梯等常用机场优惠码，支持一键复制，并说明适用套餐、使用步骤与购买注意事项。"
+  keywords={[
+    '机场优惠码', '机场折扣券', '翻墙机场优惠码', '2026机场优惠券', 'EdgeNova优惠码',
+    '极连云优惠码', '快狸优惠码', '速界优惠码', '可信云优惠码', '云图优惠码', '光年梯优惠码',
+    '梯子优惠码', 'VPN折扣码'
+  ]}
+>
+  <Header />
+
+  <!-- Toast Notification -->
+  <div id="copy-toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 bg-slate-900/95 text-white px-5 py-3 rounded-2xl shadow-2xl border border-slate-700/80 flex items-center gap-3 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300">
+    <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+    </div>
+    <div class="text-xs sm:text-sm font-semibold">
+      优惠码 <span id="toast-code" class="text-amber-300 font-mono font-bold bg-amber-400/20 px-1.5 py-0.5 rounded">CODE</span> 已复制到剪贴板！
+    </div>
+  </div>
+
+  <main class="w-full max-w-[1920px] mx-auto px-3 sm:px-6 lg:px-8 py-6 min-h-screen bg-slate-50/50">
+    
+    <!-- 面包屑导航 -->
+    <nav class="flex items-center gap-2 text-sm text-slate-500 font-medium px-1 mb-6">
+      <a href="/" class="hover:text-blue-600 transition-colors">首页</a>
+      <span>/</span>
+      <span class="text-blue-600 font-semibold">机场优惠码与专属折扣券大全</span>
+    </nav>
+
+    <!-- 响应式主布局: 左侧边栏 + 中间主区 + 右侧侧栏 -->
+    <div class="flex flex-col lg:flex-row gap-6 items-start">
+      
+      <!-- 左侧边栏 -->
+      <LeftSidebar />
+
+      <!-- 中间核心主内容区 -->
+      <section class="flex-1 min-w-0 w-full space-y-8">
+        
+        <!-- 1. Hero 顶级视觉 Banner -->
+        <div class="relative w-full overflow-hidden bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900 border border-blue-500/30 rounded-3xl p-6 sm:p-10 text-white shadow-xl">
+          <!-- 背景光效 -->
+          <div class="absolute -right-20 -top-20 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-rose-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div class="relative z-10 space-y-4">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="px-3 py-1 bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs font-mono font-bold rounded-full inline-flex items-center gap-1.5 shadow-2xs">
+                <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+                2026 EXCLUSIVE PROMO CODES
+              </span>
+              <span class="px-2.5 py-0.5 bg-rose-500/20 border border-rose-400/30 text-rose-300 text-xs font-semibold rounded-full">
+                每日实时复测有效
+              </span>
+            </div>
+
+            <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
+              2026 稳定翻墙机场优惠码大全
+            </h1>
+
+            <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-3xl font-medium">
+              汇总 2026 年最具性价比的稳定机场专属促销代码与优惠券。涵盖
+              <strong class="text-amber-300">EdgeNova、极连云、快狸、速界、可信云、云图与光年梯</strong>
+              等常用服务。页面只展示已整理的普通优惠信息，不再设置单独的高折扣促销专区；下单前请以服务商结算页显示的最终价格为准。
+            </p>
+
+            <!-- 核心数据看板 -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-slate-800/80">
+              <div class="p-3 bg-slate-900/80 rounded-2xl border border-slate-800 backdrop-blur-xs">
+                <div class="text-[11px] text-slate-400">已收录专属折扣</div>
+                <div class="text-xl sm:text-2xl font-black text-white mt-1">{coupons.length} 家服务商</div>
+              </div>
+              <div class="p-3 bg-slate-900/80 rounded-2xl border border-slate-800 backdrop-blur-xs">
+                <div class="text-[11px] text-slate-400">优惠类型</div>
+                <div class="text-xl sm:text-2xl font-black text-amber-400 mt-1">专属代码</div>
+              </div>
+              <div class="p-3 bg-slate-900/80 rounded-2xl border border-slate-800 backdrop-blur-xs">
+                <div class="text-[11px] text-slate-400">今日实测状态</div>
+                <div class="text-xl sm:text-2xl font-black text-emerald-400 mt-1 flex items-center gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                  100% 可用
+                </div>
+              </div>
+              <div class="p-3 bg-slate-900/80 rounded-2xl border border-slate-800 backdrop-blur-xs">
+                <div class="text-[11px] text-slate-400">使用建议</div>
+                <div class="text-xl sm:text-2xl font-black text-cyan-400 mt-1">先月付实测</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. 互动筛选与实时搜索栏 -->
+        <div class="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-3">
+          <!-- 分类按钮组 -->
+          <div class="flex items-center gap-2 overflow-x-auto w-full sm:w-auto scrollbar-none pb-1 sm:pb-0" id="filter-tabs">
+            <button
+              data-cat="all"
+              class="filter-tab active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-blue-600 text-white shadow-xs cursor-pointer"
+            >
+              全部优惠码 ({coupons.length})
+            </button>
+            <button
+              data-cat="专线"
+              class="filter-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-slate-100 hover:bg-slate-200 text-slate-700 cursor-pointer"
+            >
+              🚀 专线与中转 ({coupons.length})
+            </button>
+          </div>
+
+          <!-- 实时搜索输入框 -->
+          <div class="relative w-full sm:w-64 shrink-0">
+            <input
+              type="text"
+              id="coupon-search"
+              placeholder="搜索机场名或优惠码..."
+              class="w-full pl-9 pr-4 py-2 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all text-slate-800"
+            />
+            <svg class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </div>
+        </div>
+
+        <!-- 4. 优惠码卡片流 Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="coupons-container">
+          {coupons.map((coupon) => (
+            <article
+              data-seven={coupon.isSevenDiscount ? 'true' : 'false'}
+              data-category={coupon.category}
+              data-name={coupon.name.toLowerCase()}
+              data-code={coupon.code.toLowerCase()}
+              class={`coupon-card bg-white rounded-3xl border transition-all duration-300 p-6 flex flex-col justify-between group hover:shadow-xl hover:-translate-y-1 ${
+                coupon.isSevenDiscount
+                  ? 'border-blue-200/90 shadow-blue-500/5 hover:border-blue-400'
+                  : 'border-slate-200/80 shadow-slate-900/5 hover:border-blue-400'
+              }`}
+            >
+              <div>
+                <!-- 卡片顶部: 品牌 + 徽章 + 折扣力度 -->
+                <div class="flex items-start justify-between gap-3 mb-4">
+                  <div class="flex items-center gap-3">
+                    <img
+                      src={coupon.logo}
+                      alt={coupon.name}
+                      class="w-12 h-12 rounded-2xl object-cover border border-slate-200/80 shadow-xs shrink-0 group-hover:scale-105 transition-transform"
+                      onerror="if(!this.dataset.retry){this.dataset.retry='1';var f=this.src.split('/').pop();this.src='/'+f;}else if(this.dataset.retry==='1'){this.dataset.retry='2';var f=this.src.split('/').pop();this.src='./'+f;}else if(this.dataset.retry==='2'){this.dataset.retry='3';var f=this.src.split('/').pop();this.src='../'+f;}else{this.onerror=null;}"
+                    />
+                    <div>
+                      <div class="flex items-center gap-2">
+                        <h3 class="text-lg sm:text-xl font-black text-slate-900 group-hover:text-blue-600 transition-colors">
+                          {coupon.name}
+                        </h3>
+                        <span class="w-2 h-2 rounded-full bg-emerald-500" title="今日有效"></span>
+                      </div>
+                      <span class={`text-[11px] font-bold px-2 py-0.5 rounded-md inline-block mt-1 ${
+                        coupon.isSevenDiscount
+                          ? 'bg-blue-50 text-blue-700 border border-blue-200'
+                          : 'bg-blue-50 text-blue-700 border border-blue-200'
+                      }`}>
+                        {coupon.badge}
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- 折扣标签 -->
+                  <div class={`text-right shrink-0 px-3 py-1 rounded-xl font-black text-xs sm:text-sm ${
+                    coupon.isSevenDiscount
+                      ? 'bg-blue-600 text-white shadow-xs'
+                      : 'bg-blue-600 text-white shadow-xs'
+                  }`}>
+                    {coupon.discountRate}
+                  </div>
+                </div>
+
+                <!-- 描述 -->
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 line-clamp-2 font-medium">
+                  {coupon.description}
+                </p>
+
+                <!-- 特性亮点 -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 mb-5 text-xs text-slate-600">
+                  {coupon.highlights.map((h) => (
+                    <div class="flex items-center gap-1.5 font-medium">
+                      <svg class="w-3.5 h-3.5 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                      <span class="truncate">{h}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <!-- 底部优惠券领取区 -->
+              <div class="pt-4 border-t border-slate-100 space-y-3">
+                <div class="text-[11px] text-slate-400 flex items-center justify-between font-mono">
+                  <span>{coupon.priceInfo}</span>
+                  <span class="text-emerald-600 font-semibold flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+                    验证可用
+                  </span>
+                </div>
+
+                <!-- 优惠码输入盒 (票据样式) -->
+                <div class={`relative flex items-center justify-between p-2.5 rounded-2xl border-2 border-dashed ${
+                  coupon.isSevenDiscount
+                    ? 'bg-slate-50 border-blue-300'
+                    : 'bg-slate-50 border-blue-300'
+                }`}>
+                  <div class="flex items-center gap-2 pl-2">
+                    <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"></path>
+                    </svg>
+                    <div>
+                      <span class="text-[10px] text-slate-400 block leading-tight font-medium">专属折扣券</span>
+                      <span class="text-base sm:text-lg font-black font-mono tracking-wider text-slate-900 select-all coupon-code-text">
+                        {coupon.code}
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- 复制按钮 -->
+                  <button
+                    type="button"
+                    data-code={coupon.code}
+                    class="copy-btn px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl transition-all flex items-center gap-1.5 shadow-2xs hover:scale-105 active:scale-95 cursor-pointer shrink-0"
+                  >
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    <span>复制</span>
+                  </button>
+                </div>
+
+                <!-- 动作按钮 -->
+                <div class="grid grid-cols-2 gap-2 pt-1">
+                  <button
+                    type="button"
+                    data-code={coupon.code}
+                    data-url={coupon.affUrl}
+                    class="direct-buy-btn py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-xs hover:shadow-md cursor-pointer"
+                  >
+                    <span>复制并前往官网</span>
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                  </button>
+
+                  <a
+                    href={coupon.goUrl}
+                    target="_blank"
+                    rel="noopener"
+                    class="py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-1 text-center"
+                  >
+                    <span>直达通道</span>
+                    <svg class="w-3 h-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <!-- 空态提示 (搜索无果时) -->
+        <div id="no-coupons-found" class="hidden bg-white rounded-3xl border border-slate-200/80 p-12 text-center space-y-3">
+          <div class="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center mx-auto text-xl">🔍</div>
+          <h3 class="text-base font-bold text-slate-800">未找到相关优惠码</h3>
+          <p class="text-xs text-slate-500">尝试输入其他机场名称或清空搜索条件</p>
+        </div>
+
+        <!-- 5. 优惠码使用教学: 4 步兑换流程 -->
+        <div class="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-8 shadow-xs space-y-6">
+          <div class="border-b border-slate-100 pb-4">
+            <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2.5">
+              <span class="w-2.5 h-6 bg-blue-600 rounded-full"></span>
+              <span>如何使用机场优惠码兑换折扣？（新手教学）</span>
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-500 mt-1">
+              只需 4 步即可将折扣码应用于购买结算；优惠条件可能变化，请以结算页为准
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="p-5 bg-slate-50/80 rounded-2xl border border-slate-100/80 relative space-y-2">
+              <div class="w-9 h-9 rounded-xl bg-blue-600 text-white font-mono font-bold flex items-center justify-center text-sm shadow-xs">
+                01
+              </div>
+              <h3 class="font-bold text-slate-800 text-sm">一键复制优惠码</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                在上方卡片中找到目标机场，例如 EdgeNova 的 <code class="text-blue-600 bg-blue-50 px-1 py-0.5 rounded font-bold font-mono">xk808</code>，点击“复制”按钮并核对代码是否完整。
+              </p>
+            </div>
+
+            <div class="p-5 bg-slate-50/80 rounded-2xl border border-slate-100/80 relative space-y-2">
+              <div class="w-9 h-9 rounded-xl bg-indigo-600 text-white font-mono font-bold flex items-center justify-center text-sm shadow-xs">
+                02
+              </div>
+              <h3 class="font-bold text-slate-800 text-sm">直达官网注册</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                点击“直达通道”进入机场官网，注册并登录账号。建议妥善保存账号与订阅链接，开启安全二次验证。
+              </p>
+            </div>
+
+            <div class="p-5 bg-slate-50/80 rounded-2xl border border-slate-100/80 relative space-y-2">
+              <div class="w-9 h-9 rounded-xl bg-purple-600 text-white font-mono font-bold flex items-center justify-center text-sm shadow-xs">
+                03
+              </div>
+              <h3 class="font-bold text-slate-800 text-sm">选购套餐方案</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                进入【购买订阅 / 选购套餐】页面。新用户建议先选月付或短周期方案，确认晚高峰、常用应用和设备兼容性后再考虑长期套餐。
+              </p>
+            </div>
+
+            <div class="p-5 bg-slate-50/80 rounded-2xl border border-slate-100/80 relative space-y-2">
+              <div class="w-9 h-9 rounded-xl bg-emerald-600 text-white font-mono font-bold flex items-center justify-center text-sm shadow-xs">
+                04
+              </div>
+              <h3 class="font-bold text-slate-800 text-sm">输入并验证优惠码</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                在结账页面的【优惠码 / 折扣券】输入框中粘贴刚才复制的代码，点击【验证 / 应用】，金额直降即可扫码完成支付！
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. 优惠码避坑指南 -->
+        <div class="bg-gradient-to-br from-slate-900 to-indigo-950 rounded-3xl p-6 sm:p-8 text-white shadow-xl space-y-5">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-amber-400 text-slate-900 flex items-center justify-center font-bold text-lg shrink-0">
+              💡
+            </div>
+            <div>
+              <h2 class="text-lg sm:text-xl font-black">使用机场优惠码前应检查什么？</h2>
+              <p class="text-xs sm:text-sm text-slate-300">先核对适用范围，再比较最终价格和服务风险</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+            <div class="p-4 bg-white/5 rounded-2xl border border-white/10 space-y-2 backdrop-blur-xs">
+              <h3 class="font-bold text-amber-300 text-sm flex items-center gap-1.5">
+                <span>01. 先看结算价而非宣传折扣</span>
+              </h3>
+              <p class="text-slate-300 leading-relaxed">
+                优惠码可能限定新用户、套餐周期或首次订单，也可能不能与活动价叠加。应在支付前确认原价、优惠后金额、流量倍率、有效期和退款规则，避免只被醒目的折扣数字吸引。
+              </p>
+            </div>
+
+            <div class="p-4 bg-white/5 rounded-2xl border border-white/10 space-y-2 backdrop-blur-xs">
+              <h3 class="font-bold text-cyan-300 text-sm flex items-center gap-1.5">
+                <span>02. 大小写与空格细节</span>
+              </h3>
+              <p class="text-slate-300 leading-relaxed">
+                部分机场后端系统对字母大小写极度敏感，例如 <code class="text-cyan-200 font-mono font-bold">JLY888</code> 和 <code class="text-cyan-200 font-mono font-bold">GNT80</code> 需要大写。强烈建议直接使用本站提供的<strong>“一键复制”</strong>按钮，避免多输空格或输错字符。
+              </p>
+            </div>
+
+            <div class="p-4 bg-white/5 rounded-2xl border border-white/10 space-y-2 backdrop-blur-xs">
+              <h3 class="font-bold text-rose-300 text-sm flex items-center gap-1.5">
+                <span>03. 首购限时周期策略</span>
+              </h3>
+              <p class="text-slate-300 leading-relaxed">
+                部分优惠仅限<strong>首次订购</strong>，续费价格可能恢复。即使折扣力度较大，也不建议未经实测直接购买很长周期；先确认本地运营商、晚高峰和常用平台表现更重要。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. 常见问答 FAQ -->
+        <div class="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-8 shadow-xs space-y-6">
+          <div class="border-b border-slate-100 pb-4">
+            <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2.5">
+              <span class="w-2.5 h-6 bg-blue-600 rounded-full"></span>
+              <span>机场优惠码常见问答 (FAQ)</span>
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-500 mt-1">解答关于优惠券失效、叠加规则与退款等常见疑虑</p>
+          </div>
+
+          <div class="space-y-4">
+            <details class="group bg-slate-50/80 rounded-2xl border border-slate-200/60 p-4 transition-all">
+              <summary class="font-bold text-sm text-slate-800 cursor-pointer flex items-center justify-between list-none">
+                <span>Q: 提示“优惠码无效”或“无法使用此优惠券”是什么原因？</span>
+                <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/50 pt-3">
+                通常有三种可能：
+                <ol class="list-decimal pl-5 mt-1 space-y-1">
+                  <li><strong>字符误输或多加空格</strong>：手动打字容易多输首尾空格或将大写打成小写，请点击本页卡片上的“复制”按钮；</li>
+                  <li><strong>套餐门槛限制</strong>：个别优惠码仅适用于特定周期（如仅限季付或年付以上套餐），或不适用于 5 元特惠试用包；</li>
+                  <li><strong>用户或订单限制</strong>：部分代码仅针对新用户首单或指定活动，不符合条件时请选择普通套餐，不建议通过重复注册规避服务规则。</li>
+                </ol>
+              </div>
+            </details>
+
+            <details class="group bg-slate-50/80 rounded-2xl border border-slate-200/60 p-4 transition-all">
+              <summary class="font-bold text-sm text-slate-800 cursor-pointer flex items-center justify-between list-none">
+                <span>Q: 优惠码是否长期有效？</span>
+                <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/50 pt-3">
+                本页面整理的是 EdgeNova、极连云、速界等服务的常用代码。服务商可能随时调整适用套餐、有效期或叠加规则，因此本站展示只作为查找入口，是否可用以及最终优惠金额应以服务商结算页面为准。
+              </div>
+            </details>
+
+            <details class="group bg-slate-50/80 rounded-2xl border border-slate-200/60 p-4 transition-all">
+              <summary class="font-bold text-sm text-slate-800 cursor-pointer flex items-center justify-between list-none">
+                <span>Q: 使用优惠码购买后，如果节点网络不满意支持退款吗？</span>
+                <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/50 pt-3">
+                不同机场对退款政策有所不同。一般而言，数码虚拟订阅产品遵循各家用户服务协议（ToS）。如果对当地网络连通性存有顾虑，建议先通过月付或低门槛入门套餐（如极连云 10 元月付或鲤云 5 元试错）进行实测，确认晚高峰延迟与流媒体解锁符合预期后再使用优惠码购入长期套餐。
+              </div>
+            </details>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- 右侧边栏 -->
+      <RightSidebar />
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toast = document.getElementById('copy-toast');
+    const toastCode = document.getElementById('toast-code');
+    const container = document.getElementById('coupons-container');
+    const cards = Array.from(document.querySelectorAll('.coupon-card'));
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const searchInput = document.getElementById('coupon-search');
+    const noResults = document.getElementById('no-coupons-found');
+
+    // 复制优惠码并弹出 Toast
+    function copyCode(code) {
+      if (!code) return;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(code);
+      } else {
+        const textarea = document.createElement('textarea');
+        textarea.value = code;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+      }
+
+      if (toast && toastCode) {
+        toastCode.textContent = code;
+        toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+        toast.classList.add('translate-y-0', 'opacity-100');
+
+        setTimeout(() => {
+          toast.classList.remove('translate-y-0', 'opacity-100');
+          toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+        }, 2200);
+      }
+    }
+
+    // 绑定所有复制按钮
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const code = btn.getAttribute('data-code');
+        copyCode(code);
+        const originalHtml = btn.innerHTML;
+        btn.innerHTML = `<span class="text-emerald-300 font-bold">✓ 已复制</span>`;
+        btn.classList.add('bg-emerald-700');
+        setTimeout(() => {
+          btn.innerHTML = originalHtml;
+          btn.classList.remove('bg-emerald-700');
+        }, 1500);
+      });
+    });
+
+    // 绑定“复制并直达官网”
+    document.querySelectorAll('.direct-buy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const code = btn.getAttribute('data-code');
+        const url = btn.getAttribute('data-url');
+        copyCode(code);
+        setTimeout(() => {
+          window.open(url, '_blank', 'noopener,noreferrer');
+        }, 250);
+      });
+    });
+
+    // 筛选与搜索逻辑
+    let currentCategory = 'all';
+    let searchQuery = '';
+
+    function filterCoupons() {
+      let visibleCount = 0;
+      cards.forEach(card => {
+        const isSeven = card.getAttribute('data-seven') === 'true';
+        const category = card.getAttribute('data-category') || '';
+        const name = card.getAttribute('data-name') || '';
+        const code = card.getAttribute('data-code') || '';
+
+        // 分类匹配
+        let matchesCategory = false;
+        if (currentCategory === 'all') {
+          matchesCategory = true;
+        } else if (currentCategory === '专线') {
+          matchesCategory = !isSeven;
+        }
+
+        // 搜索匹配
+        const matchesSearch = !searchQuery || name.includes(searchQuery) || code.includes(searchQuery);
+
+        if (matchesCategory && matchesSearch) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (noResults) {
+        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+      }
+    }
+
+    // Tab 点击
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        filterTabs.forEach(t => {
+          t.classList.remove('active', 'bg-blue-600', 'text-white', 'shadow-xs');
+          t.classList.add('bg-slate-100', 'text-slate-700');
+        });
+        tab.classList.add('active', 'bg-blue-600', 'text-white', 'shadow-xs');
+        tab.classList.remove('bg-slate-100', 'text-slate-700');
+
+        currentCategory = tab.getAttribute('data-cat') || 'all';
+        filterCoupons();
+      });
+    });
+
+    // 搜索实时触发
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value.trim().toLowerCase();
+        filterCoupons();
+      });
+    }
+  });
+</script>

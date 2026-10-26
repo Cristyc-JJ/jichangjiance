@@ -10,6 +10,36 @@ import { articles } from '@/data/articles';
 // 知识库分类板块
 const knowledgeCategories = [
   {
+    title: '美区 Apple ID 专题',
+    desc: '共享账号安全、App Store 登录、海外应用下载与退出更新流程。',
+    tag: 'APPLE_ID_GUIDES',
+    articles: articles.filter(a => a.category === 'Apple ID 专题')
+  },
+  {
+    title: '选购、年度与价格指南',
+    desc: '从稳定性、套餐成本、运营风险和年度变化建立可复现的筛选框架。',
+    tag: 'BUYING_GUIDES',
+    articles: articles.filter(a => ['选购与推荐', '年度指南', '价格与套餐'].includes(a.category))
+  },
+  {
+    title: '线路架构与客户端生态',
+    desc: 'IPLC、IEPL、BGP、双负载与主流客户端兼容配置详解。',
+    tag: 'NETWORK_CLIENTS',
+    articles: articles.filter(a => ['线路与架构', '客户端生态'].includes(a.category))
+  },
+  {
+    title: '流媒体、AI 与跨境商业',
+    desc: '覆盖流媒体解锁、AI 工具稳定访问和跨境团队网络规划。',
+    tag: 'MEDIA_BUSINESS',
+    articles: articles.filter(a => ['流媒体与 AI', '跨境商业'].includes(a.category))
+  },
+  {
+    title: '评测、测速与排行方法',
+    desc: '用统一变量、晚高峰样本和长期记录理解评测与排行榜。',
+    tag: 'TESTING_METHODS',
+    articles: articles.filter(a => a.category === '评测与排行')
+  },
+  {
     title: '基础概念与原理',
     desc: '了解科学上网基本原理、机场运作方式与网络架构差异。',
     tag: 'FUNDAMENTALS',
@@ -58,7 +88,7 @@ const faqs = [
 
 <BaseLayout
   title="科学上网知识库 - 2026 稳定翻墙原理、线路架构与客户端配置全解"
-  description="机场数据检测中心科学上网知识库：零基础概念解析、IPLC 专线架构、VLESS/Hysteria2 协议详解、全平台客户端配置与安全防封指南。"
+  description="机场检测观察科学上网知识库：零基础概念解析、IPLC 专线架构、VLESS/Hysteria2 协议详解、全平台客户端配置与安全防封指南。"
   keywords={['科学上网推荐', '2026科学上网指南', 'IPLC专线机场', 'IEPL专线机场', '专线机场推荐', 'BGP中继机场', '内网专线节点', '高SLA机场', '晚高峰稳定机场', '跨境专线推荐', '全专线机场', '双负载机场']}
 >
   <Header />
@@ -124,7 +154,7 @@ const faqs = [
 
               <!-- 对应精选文章网格 -->
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {cat.articles.slice(0, 4).map(article => (
+                {cat.articles.map(article => (
                   <ArticleCard article={article} />
                 ))}
               </div>

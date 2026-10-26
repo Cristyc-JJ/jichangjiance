@@ -12,7 +12,7 @@ interface Props {
 
 const {
   title,
-  description = '2026 稳定翻墙机场排行榜 & 机场数据检测中心 - 实时网络质量评估',
+  description = '2026 稳定翻墙机场排行榜 & 机场检测观察 - 实时网络质量评估',
   canonical,
   keywords = [
     '免费美区ID共享', '免费美区Apple ID', '机场推荐', '2026机场推荐', '稳定机场推荐',
@@ -25,6 +25,9 @@ const {
 const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site);
 const keywordContent = Array.isArray(keywords) ? keywords.join(',') : keywords;
 const socialImageURL = new URL(image, Astro.site);
+const cleanPath = Astro.url.pathname.replace(/^\//, '').replace(/\/$/, '');
+const pageDepth = cleanPath ? cleanPath.split('/').length : 0;
+const filePrefix = pageDepth === 0 ? './' : '../'.repeat(pageDepth);
 ---
 
 <!DOCTYPE html>
@@ -39,7 +42,7 @@ const socialImageURL = new URL(image, Astro.site);
     <link rel="canonical" href={canonicalURL} />
     <meta property="og:locale" content="zh_CN" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="机场数据检测中心" />
+    <meta property="og:site_name" content="机场检测观察" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
@@ -81,7 +84,31 @@ const socialImageURL = new URL(image, Astro.site);
       img { max-width: 100%; }
     </style>
   </head>
-  <body class="bg-white text-slate-800 antialiased min-h-screen">
+  <body class="bg-white text-slate-800 antialiased min-h-screen" data-file-prefix={filePrefix}>
     <slot />
+    <script is:inline>
+      if (window.location.protocol === 'file:') {
+        const prefix = document.body.dataset.filePrefix || './';
+        document.querySelectorAll('a[href^="/"]').forEach((node) => {
+          const href = node.getAttribute('href');
+          if (href) {
+            const [path, hash = ''] = href.split('#');
+            const localPath = path.endsWith('/') ? path + 'index.html' : path;
+            node.setAttribute('href', prefix + localPath.slice(1) + (hash ? `#${hash}` : ''));
+          }
+        });
+        document.querySelectorAll('a[href]:not([href^="/"]):not([href^="http"]):not([href^="#"]):not([href^="mailto:"]):not([href^="javascript:"])').forEach((node) => {
+          const href = node.getAttribute('href');
+          if (href) {
+            const [path, hash = ''] = href.split('#');
+            if (path.endsWith('/')) node.setAttribute('href', path + 'index.html' + (hash ? `#${hash}` : ''));
+          }
+        });
+        document.querySelectorAll('img[src^="/"]').forEach((node) => {
+          const src = node.getAttribute('src');
+          if (src) node.setAttribute('src', prefix + src.slice(1));
+        });
+      }
+    </script>
   </body>
 </html>

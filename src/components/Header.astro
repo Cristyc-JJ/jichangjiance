@@ -9,6 +9,7 @@ const homeHref = depth === 0 ? './index.html' : prefix + 'index.html';
 const navItems = [
   { label: '机场检测推荐', path: '', rawHref: '/' },
   { label: '机场评测', path: 'reviews', rawHref: '/reviews/' },
+  { label: '机场优惠码', path: 'coupons', rawHref: '/coupons/', hot: true },
   { label: '客户端教程与下载', path: 'downloads', rawHref: '/downloads/' },
   { label: '科学上网', path: 'knowledge', rawHref: '/knowledge/' },
   { label: 'AI工具推荐', path: 'topics/ai-tools', rawHref: '/topics/ai-tools/' },
@@ -30,7 +31,7 @@ const navItems = [
           </svg>
         </div>
         <div class="flex items-center gap-2.5">
-          <span class="text-lg font-extrabold text-slate-800 group-hover:text-blue-600 transition-colors tracking-tight">机场数据检测中心</span>
+          <span class="text-lg font-extrabold text-slate-800 group-hover:text-blue-600 transition-colors tracking-tight">机场检测观察</span>
           <span class="px-2 py-0.5 text-[11px] font-semibold bg-emerald-50 text-emerald-600 border border-emerald-200/70 rounded-full flex items-center gap-1.5 shrink-0">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
             实时监控
@@ -46,13 +47,20 @@ const navItems = [
           return (
             <a
               href={targetHref}
-              class={`px-3.5 py-2 rounded-xl transition-all flex items-center gap-1 ${
+              class={`px-3 sm:px-3.5 py-2 rounded-xl transition-all flex items-center gap-1 shrink-0 ${
                 isActive
                   ? 'bg-blue-600 text-white font-bold shadow-xs shadow-blue-500/20'
                   : 'text-slate-600 hover:text-blue-600 hover:bg-slate-100/80'
               }`}
             >
-              {item.label}
+              <span>{item.label}</span>
+              {item.hot && (
+                <span class={`px-1.5 py-0.2 text-[9px] font-black rounded-full leading-tight ${
+                  isActive ? 'bg-amber-400 text-slate-900' : 'bg-rose-500 text-white animate-pulse'
+                }`}>
+                  HOT
+                </span>
+              )}
             </a>
           );
         })}
@@ -61,4 +69,3 @@ const navItems = [
     </div>
   </div>
 </header>
-

@@ -205,6 +205,30 @@ export const brands: Brand[] = [
     rating: 8.3,
     articleCount: 2,
   },
+  {
+    slug: 'yunjiexian', name: '云界线', description: '面向跨境访问与多设备使用的稳定加速服务，提供多地区节点和一键订阅。', logo: '/yunjiexian_logo.png', category: '跨境专线', featured: true,
+    pros: ['跨境访问稳定', '多端一键订阅', '常用地区节点覆盖'], cons: ['具体套餐以官网为准'], rating: 9.0, articleCount: 1,
+  },
+  {
+    slug: 'dalaoyun', name: '大佬云', description: '兼顾高清观影、文件传输与日常办公的大带宽多地区节点服务。', logo: '/dalaoyun_logo.png', category: '大流量/高吞吐', featured: true,
+    pros: ['大带宽节点', '多地区覆盖', '适合高清流媒体'], cons: ['具体套餐以官网为准'], rating: 8.9, articleCount: 1,
+  },
+  {
+    slug: 'huanqiuti', name: '环球梯', description: '覆盖常用海外地区，适合多地区访问、流媒体和跨境业务测试。', logo: '/huanqiuti_logo.png', category: '全球节点', featured: false,
+    pros: ['全球多区节点', '切换灵活', '支持主流客户端'], cons: ['具体套餐以官网为准'], rating: 8.8, articleCount: 1,
+  },
+  {
+    slug: 'shandianshu', name: '闪电鼠', description: '强调快速连接和简单配置，适合跨平台直接导入订阅的新用户。', logo: '/shandianshu_logo.png', category: '新手友好', featured: false,
+    pros: ['连接速度快', '一键导入订阅', '多平台支持'], cons: ['具体套餐以官网为准'], rating: 8.7, articleCount: 1,
+  },
+  {
+    slug: 'liulianyun', name: '榴莲云', description: '主打大流量和持续使用体验，适合视频、下载与多设备日常使用。', logo: '/liulianyun_logo.png', category: '大流量/高吞吐', featured: false,
+    pros: ['大流量方案', '多设备使用', '流媒体体验稳定'], cons: ['官网使用 HTTP 链接'], rating: 8.6, articleCount: 1,
+  },
+  {
+    slug: 'shenxing', name: '神行加速', description: '针对延迟和抖动进行优化，兼顾游戏、实时会议及跨境访问。', logo: '/shenxing_logo.png', category: '低延迟加速', featured: false,
+    pros: ['低延迟优化', '适合实时会议', '游戏与办公兼顾'], cons: ['具体套餐以官网为准'], rating: 8.5, articleCount: 1,
+  },
 ];
 
 // 获取精选品牌

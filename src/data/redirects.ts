@@ -103,6 +103,42 @@ export const redirects: Record<string, RedirectLink> = {
     url: 'https://宝云.com',
     description: '福宝财宝金宝 · 传世大流量',
   },
+  shandianshu: {
+    id: 'shandianshu',
+    name: '闪电鼠 官网',
+    url: 'https://eothvip01.shandianshuaff.com/#/?code=EfJpujr9',
+    description: '闪电极速连接 · 全平台快速订阅',
+  },
+  dalaoyun: {
+    id: 'dalaoyun',
+    name: '大佬云 官网',
+    url: 'https://liu01.dalaoyunaff.com/#/?code=LqIwc3Nf',
+    description: '稳定大带宽 · 多线路冗余接入',
+  },
+  shenxing: {
+    id: 'shenxing',
+    name: '神行加速 官网',
+    url: 'https://fugui0077.shenxingaff.com/#/?code=5L345JjO',
+    description: '低延迟专线加速 · 游戏与语音优化',
+  },
+  huanqiuti: {
+    id: 'huanqiuti',
+    name: '环球梯 官网',
+    url: 'https://123pps01.huanqiutiaff.com/#/?code=1T3PsUTF',
+    description: '全球多国物理落地 · 流媒体覆盖',
+  },
+  liulianyun: {
+    id: 'liulianyun',
+    name: '榴莲云 官网',
+    url: 'http://853vip01.liulianyunaff.com/#/?code=cFwn3C3v',
+    description: '丝滑稳定大流量 · 多设备日常使用',
+  },
+  yunjiexian: {
+    id: 'yunjiexian',
+    name: '云界线 官网',
+    url: 'https://youxia01.yunjiexianaff.com/#/?code=Wj8f6Nh4',
+    description: '跨境专属加速 · 原生出口线路',
+  },
   liangxinyun: {
     id: 'liangxinyun',
     name: '良心云官网入口',

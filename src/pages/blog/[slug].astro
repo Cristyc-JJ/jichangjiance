@@ -23,7 +23,7 @@ const relatedArticles = articles
   .slice(0, 3);
 
 // FAQ 数据
-const faqs = [
+const defaultFaqs = [
   {
     question: '这篇教程适合新手吗？',
     answer: '是的，我们的教程都从基础概念开始拆解，提供单步截图与一键导入说明，即使是初学者也能轻松上手。'
@@ -37,10 +37,11 @@ const faqs = [
     answer: '请优先检查客户端内核是否已升级至支持 VLESS / Sing-box 的最新版本，其次检查设备系统时间误差是否在 60 秒内。'
   }
 ];
+const faqs = article.faqs?.length ? article.faqs : defaultFaqs;
 ---
 
 <BaseLayout
-  title={`${article.title} - 机场指南`}
+  title={`${article.title} - 机场检测观察`}
   description={article.description}
   keywords={article.tags}
 >

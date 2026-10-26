@@ -9,6 +9,7 @@ const prefix = depth === 0 ? './' : '../'.repeat(depth);
 const footerLinks = {
   '内容分类': [
     { label: '新手教程', href: prefix + 'blog/index.html' },
+    { label: '机场优惠码', href: prefix + 'coupons/index.html' },
     { label: '客户端教程与下载', href: prefix + 'downloads/index.html' },
     { label: '科学上网知识库', href: prefix + 'knowledge/index.html' },
     { label: '评测对比', href: prefix + 'reviews/index.html' },
@@ -16,6 +17,7 @@ const footerLinks = {
   '重要页面': [
     { label: '机场检测推荐', href: depth === 0 ? './index.html' : prefix + 'index.html' },
     { label: '机场评测', href: prefix + 'reviews/index.html' },
+    { label: '机场优惠码', href: prefix + 'coupons/index.html' },
     { label: '客户端教程与下载', href: prefix + 'downloads/index.html' },
     { label: '关于我们', href: prefix + 'about/index.html' },
   ],
@@ -39,7 +41,7 @@ const footerLinks = {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
             </svg>
           </div>
-          <span class="text-lg font-bold text-slate-900">机场数据检测中心</span>
+          <span class="text-lg font-bold text-slate-900">机场检测观察</span>
         </div>
         <p class="text-sm text-slate-600 leading-relaxed">
           专注于提供 2026 稳定翻墙机场实时节点数据监测、评测对比与客户端配置指南。
@@ -69,7 +71,7 @@ const footerLinks = {
     <!-- 底部版权 -->
     <div class="mt-12 pt-8 border-t border-slate-200">
       <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-600">
-        <p>© {currentYear} 机场指南. 保留所有权利.</p>
+        <p>© {currentYear} 机场检测观察. 保留所有权利.</p>
         <p class="text-xs text-slate-500">
           本站内容仅供参考，不构成购买建议 · 请遵守当地法律法规
         </p>

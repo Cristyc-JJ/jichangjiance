@@ -11,6 +11,7 @@ export async function createSitemapResponse() {
   const staticPages = [
     { url: 'https://jichangjiance.net/', priority: '1.0', changefreq: 'daily' },
     { url: 'https://jichangjiance.net/reviews/', priority: '0.9', changefreq: 'daily' },
+    { url: 'https://jichangjiance.net/coupons/', priority: '0.9', changefreq: 'daily' },
     { url: 'https://jichangjiance.net/downloads/', priority: '0.9', changefreq: 'weekly' },
     { url: 'https://jichangjiance.net/knowledge/', priority: '0.9', changefreq: 'weekly' },
     { url: 'https://jichangjiance.net/blog/', priority: '0.8', changefreq: 'daily' },

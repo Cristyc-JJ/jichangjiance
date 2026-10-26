@@ -15,8 +15,8 @@ const tags = Array.from(new Set(articles.flatMap((a) => a.tags || [])));
 ---
 
 <BaseLayout
-  title="网站地图 - 2026 机场数据检测中心"
-  description="机场数据检测中心全站页面与内容聚合索引地图。"
+  title="网站地图 - 2026 机场检测观察"
+  description="机场检测观察全站页面与内容聚合索引地图。"
 >
   <Header />
 
@@ -53,6 +53,10 @@ const tags = Array.from(new Set(articles.flatMap((a) => a.tags || [])));
               <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 text-xs">
                 <a href="/" class="p-3 bg-slate-50 hover:bg-blue-50 hover:text-blue-600 rounded-xl border border-slate-200/60 font-semibold transition-all">首页</a>
                 <a href="/reviews/" class="p-3 bg-slate-50 hover:bg-blue-50 hover:text-blue-600 rounded-xl border border-slate-200/60 font-semibold transition-all">机场评测</a>
+                <a href="/coupons/" class="p-3 bg-slate-50 hover:bg-rose-50 hover:text-rose-600 rounded-xl border border-slate-200/60 font-semibold transition-all flex items-center justify-between">
+                  <span>机场优惠码</span>
+                  <span class="px-1.5 py-0.5 bg-rose-500 text-white text-[9px] rounded-full font-bold">HOT</span>
+                </a>
                 <a href="/downloads/" class="p-3 bg-slate-50 hover:bg-blue-50 hover:text-blue-600 rounded-xl border border-slate-200/60 font-semibold transition-all">客户端教程与下载</a>
                 <a href="/knowledge/" class="p-3 bg-slate-50 hover:bg-blue-50 hover:text-blue-600 rounded-xl border border-slate-200/60 font-semibold transition-all">科学上网知识库</a>
                 <a href="/blog/" class="p-3 bg-slate-50 hover:bg-blue-50 hover:text-blue-600 rounded-xl border border-slate-200/60 font-semibold transition-all">博客文章</a>

@@ -1,5 +1,8 @@
-// 14 大深度 SEO 教程文章正文库 (每篇 3000 字左右)
+import { generatedKnowledgeContent } from './generatedKnowledge';
+
+// 深度 SEO 教程文章正文库
 export const blogContentMap: Record<string, string> = {
+  ...generatedKnowledgeContent,
   'what-is-airport-service': `
 <h2>一、引言：什么是“机场服务”？</h2>
 <p>

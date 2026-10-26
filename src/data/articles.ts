@@ -1,4 +1,5 @@
 // 文章数据
+import { generatedKnowledgeArticles } from './generatedKnowledge';
 export interface Article {
   slug: string;
   title: string;
@@ -9,6 +10,7 @@ export interface Article {
   publishDate: string;
   updateDate?: string;
   featured?: boolean;
+  faqs?: Array<{ question: string; answer: string }>;
 }
 
 export const categories = [
@@ -18,9 +20,19 @@ export const categories = [
   '评测对比',
   '问题解答',
   '进阶技巧',
+  'Apple ID 专题',
+  '选购与推荐',
+  '年度指南',
+  '线路与架构',
+  '价格与套餐',
+  '客户端生态',
+  '流媒体与 AI',
+  '跨境商业',
+  '评测与排行',
 ];
 
 export const articles: Article[] = [
+  ...generatedKnowledgeArticles,
   {
     slug: 'what-is-airport-service',
     title: '什么是机场服务？新手完全指南',

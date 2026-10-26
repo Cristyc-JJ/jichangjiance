@@ -6,6 +6,14 @@ const segments = cleanPath ? cleanPath.split('/') : [];
 const depth = segments.length;
 const prefix = depth === 0 ? './' : '../'.repeat(depth);
 const homeHref = depth === 0 ? './index.html' : prefix + 'index.html';
+const addedQuickAirports = [
+  { id: 'yunjiexian', name: '云界线', logo: 'yunjiexian_logo.png', ping: '42ms', rank: 8 },
+  { id: 'dalaoyun', name: '大佬云', logo: 'dalaoyun_logo.png', ping: '44ms', rank: 9 },
+  { id: 'huanqiuti', name: '环球梯', logo: 'huanqiuti_logo.png', ping: '46ms', rank: 10 },
+  { id: 'shandianshu', name: '闪电鼠', logo: 'shandianshu_logo.png', ping: '39ms', rank: 11 },
+  { id: 'liulianyun', name: '榴莲云', logo: 'liulianyun_logo.png', ping: '45ms', rank: 12 },
+  { id: 'shenxing', name: '神行加速', logo: 'shenxing_logo.png', ping: '36ms', rank: 13 },
+];
 ---
 
 <aside class="w-full lg:w-[260px] xl:w-[280px] shrink-0 space-y-6 sticky top-20">
@@ -24,7 +32,7 @@ const homeHref = depth === 0 ? './index.html' : prefix + 'index.html';
     </div>
 
     <div class="space-y-2 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-      <p>欢迎来到机场数据检测中心！本站已接入 2026 稳定机场分布式探针。</p>
+      <p>欢迎来到机场检测观察！本站已接入 2026 稳定机场分布式探针。</p>
       <p class="text-slate-500 font-medium">所有图形与数据均在毫秒级实时变动中。</p>
     </div>
 
@@ -43,115 +51,124 @@ const homeHref = depth === 0 ? './index.html' : prefix + 'index.html';
         <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 10a1 1 0 011-1h5a1 1 0 011 1v6a1 1 0 01-1 1h-5a1 1 0 01-1-1v-6z"></path></svg>
         机场分类速查
       </span>
-      <span class="text-[10px] text-blue-600 bg-blue-50/80 border border-blue-100 px-1.5 py-0.5 rounded font-mono font-bold">16 Brands</span>
+      <span class="text-[10px] text-blue-600 bg-blue-50/80 border border-blue-100 px-1.5 py-0.5 rounded font-mono font-bold">22 Brands</span>
     </h4>
-    <div class="space-y-1.5 text-xs">
-      <a href={`${homeHref}#edgenova`} class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
+    <div class="flex flex-col gap-1.5 text-xs">
+      {addedQuickAirports.map((airport) => (
+        <a href={`${homeHref}#${airport.id}`} style={`order:${airport.rank}`} class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
+          <span class="flex items-center gap-2 font-semibold">
+            <img src={`/${airport.logo}`} alt={airport.name} class="w-5 h-5 rounded-md object-cover border border-slate-200/80 shrink-0" />
+            {airport.name}
+          </span>
+          <span class="text-[10px] text-slate-400 font-mono group-hover:text-blue-600">{airport.ping}</span>
+        </a>
+      ))}
+      <a href={`${homeHref}#edgenova`} style="order:1" class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
         <span class="flex items-center gap-2 font-semibold">
           <img src="/edgenova_logo.png" alt="EdgeNova" class="w-5 h-5 rounded-md object-cover border border-slate-200/80 shrink-0" onerror="if(!this.dataset.retry){this.dataset.retry='1';var f=this.src.split('/').pop();this.src='./'+f;}else if(this.dataset.retry==='1'){this.dataset.retry='2';var f=this.src.split('/').pop();this.src='../'+f;}else if(this.dataset.retry==='2'){this.dataset.retry='3';var f=this.src.split('/').pop();this.src='../../'+f;}else{this.onerror=null;}" />
           EdgeNova
         </span>
         <span class="text-[10px] text-slate-400 font-mono group-hover:text-blue-600">38ms</span>
       </a>
-      <a href={`${homeHref}#jilianyun`} class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
+      <a href={`${homeHref}#jilianyun`} style="order:2" class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
         <span class="flex items-center gap-2 font-semibold">
           <img src="/jilianyun_logo.png" alt="极连云" class="w-5 h-5 rounded-md object-cover border border-slate-200/80 shrink-0" onerror="if(!this.dataset.retry){this.dataset.retry='1';var f=this.src.split('/').pop();this.src='./'+f;}else if(this.dataset.retry==='1'){this.dataset.retry='2';var f=this.src.split('/').pop();this.src='../'+f;}else if(this.dataset.retry==='2'){this.dataset.retry='3';var f=this.src.split('/').pop();this.src='../../'+f;}else{this.onerror=null;}" />
           极连云
         </span>
         <span class="text-[10px] text-slate-400 font-mono group-hover:text-blue-600">42ms</span>
       </a>
-      <a href={`${homeHref}#guangnianti`} class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
+      <a href={`${homeHref}#guangnianti`} style="order:3" class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
         <span class="flex items-center gap-2 font-semibold">
           <img src="/guangnianti_logo.png" alt="光年梯" class="w-5 h-5 rounded-md object-cover border border-slate-200/80 shrink-0" onerror="if(!this.dataset.retry){this.dataset.retry='1';var f=this.src.split('/').pop();this.src='./'+f;}else if(this.dataset.retry==='1'){this.dataset.retry='2';var f=this.src.split('/').pop();this.src='../'+f;}else if(this.dataset.retry==='2'){this.dataset.retry='3';var f=this.src.split('/').pop();this.src='../../'+f;}else{this.onerror=null;}" />
           光年梯
         </span>
         <span class="text-[10px] text-slate-400 font-mono group-hover:text-blue-600">45ms</span>
       </a>
-      <a href={`${homeHref}#sujie`} class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
+      <a href={`${homeHref}#sujie`} style="order:5" class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
         <span class="flex items-center gap-2 font-semibold">
           <img src="/sujie_logo.png" alt="速界" class="w-5 h-5 rounded-md object-cover border border-slate-200/80 shrink-0" onerror="if(!this.dataset.retry){this.dataset.retry='1';var f=this.src.split('/').pop();this.src='./'+f;}else if(this.dataset.retry==='1'){this.dataset.retry='2';var f=this.src.split('/').pop();this.src='../'+f;}else if(this.dataset.retry==='2'){this.dataset.retry='3';var f=this.src.split('/').pop();this.src='../../'+f;}else{this.onerror=null;}" />
           速界
         </span>
         <span class="text-[10px] text-slate-400 font-mono group-hover:text-blue-600">39ms</span>
       </a>
-      <a href={`${homeHref}#liyun`} class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
+      <a href={`${homeHref}#liyun`} style="order:4" class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
         <span class="flex items-center gap-2 font-semibold">
           <img src="/liyun_logo.png" alt="鲤云" class="w-5 h-5 rounded-md object-cover border border-slate-200/80 shrink-0" onerror="if(!this.dataset.retry){this.dataset.retry='1';var f=this.src.split('/').pop();this.src='./'+f;}else if(this.dataset.retry==='1'){this.dataset.retry='2';var f=this.src.split('/').pop();this.src='../'+f;}else if(this.dataset.retry==='2'){this.dataset.retry='3';var f=this.src.split('/').pop();this.src='../../'+f;}else{this.onerror=null;}" />
           鲤云
         </span>
         <span class="text-[10px] text-slate-400 font-mono group-hover:text-blue-600">35ms</span>
       </a>
-      <a href={`${homeHref}#kexinyun`} class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
+      <a href={`${homeHref}#kexinyun`} style="order:7" class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
         <span class="flex items-center gap-2 font-semibold">
           <img src="/kexinyun_logo.png" alt="可信云" class="w-5 h-5 rounded-md object-cover border border-slate-200/80 shrink-0" onerror="if(!this.dataset.retry){this.dataset.retry='1';var f=this.src.split('/').pop();this.src='./'+f;}else if(this.dataset.retry==='1'){this.dataset.retry='2';var f=this.src.split('/').pop();this.src='../'+f;}else if(this.dataset.retry==='2'){this.dataset.retry='3';var f=this.src.split('/').pop();this.src='../../'+f;}else{this.onerror=null;}" />
           可信云
         </span>
         <span class="text-[10px] text-slate-400 font-mono group-hover:text-blue-600">43ms</span>
       </a>
-      <a href={`${homeHref}#shanshuiyun`} class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
+      <a href={`${homeHref}#shanshuiyun`} style="order:14" class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
         <span class="flex items-center gap-2 font-semibold">
           <img src="/shanshuiyun_logo.png" alt="山水云" class="w-5 h-5 rounded-md object-cover border border-slate-200/80 shrink-0" onerror="if(!this.dataset.retry){this.dataset.retry='1';var f=this.src.split('/').pop();this.src='./'+f;}else if(this.dataset.retry==='1'){this.dataset.retry='2';var f=this.src.split('/').pop();this.src='../'+f;}else if(this.dataset.retry==='2'){this.dataset.retry='3';var f=this.src.split('/').pop();this.src='../../'+f;}else{this.onerror=null;}" />
           山水云
         </span>
         <span class="text-[10px] text-slate-400 font-mono group-hover:text-blue-600">40ms</span>
       </a>
-      <a href={`${homeHref}#kuaili`} class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
+      <a href={`${homeHref}#kuaili`} style="order:6" class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
         <span class="flex items-center gap-2 font-semibold">
           <img src="/kuaili_logo.png" alt="快狸" class="w-5 h-5 rounded-md object-cover border border-slate-200/80 shrink-0" onerror="if(!this.dataset.retry){this.dataset.retry='1';var f=this.src.split('/').pop();this.src='./'+f;}else if(this.dataset.retry==='1'){this.dataset.retry='2';var f=this.src.split('/').pop();this.src='../'+f;}else if(this.dataset.retry==='2'){this.dataset.retry='3';var f=this.src.split('/').pop();this.src='../../'+f;}else{this.onerror=null;}" />
           快狸
         </span>
         <span class="text-[10px] text-slate-400 font-mono group-hover:text-blue-600">41ms</span>
       </a>
-      <a href={`${homeHref}#miaomiaoyun`} class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
+      <a href={`${homeHref}#miaomiaoyun`} style="order:15" class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
         <span class="flex items-center gap-2 font-semibold">
           <img src="/miaomiaoyun_logo.png" alt="秒秒云" class="w-5 h-5 rounded-md object-cover border border-slate-200/80 shrink-0" onerror="if(!this.dataset.retry){this.dataset.retry='1';var f=this.src.split('/').pop();this.src='./'+f;}else if(this.dataset.retry==='1'){this.dataset.retry='2';var f=this.src.split('/').pop();this.src='../'+f;}else if(this.dataset.retry==='2'){this.dataset.retry='3';var f=this.src.split('/').pop();this.src='../../'+f;}else{this.onerror=null;}" />
           秒秒云
         </span>
         <span class="text-[10px] text-slate-400 font-mono group-hover:text-blue-600">37ms</span>
       </a>
-      <a href={`${homeHref}#yuntu`} class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
+      <a href={`${homeHref}#yuntu`} style="order:16" class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
         <span class="flex items-center gap-2 font-semibold">
           <img src="/yuntu_logo.png" alt="云图" class="w-5 h-5 rounded-md object-cover border border-slate-200/80 shrink-0" onerror="if(!this.dataset.retry){this.dataset.retry='1';var f=this.src.split('/').pop();this.src='./'+f;}else if(this.dataset.retry==='1'){this.dataset.retry='2';var f=this.src.split('/').pop();this.src='../'+f;}else if(this.dataset.retry==='2'){this.dataset.retry='3';var f=this.src.split('/').pop();this.src='../../'+f;}else{this.onerror=null;}" />
           云图
         </span>
         <span class="text-[10px] text-slate-400 font-mono group-hover:text-blue-600">40ms</span>
       </a>
-      <a href={`${homeHref}#jinyun`} class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
+      <a href={`${homeHref}#jinyun`} style="order:17" class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
         <span class="flex items-center gap-2 font-semibold">
           <img src="/jinyun_logo.png" alt="锦云" class="w-5 h-5 rounded-md object-cover border border-slate-200/80 shrink-0" onerror="if(!this.dataset.retry){this.dataset.retry='1';var f=this.src.split('/').pop();this.src='./'+f;}else if(this.dataset.retry==='1'){this.dataset.retry='2';var f=this.src.split('/').pop();this.src='../'+f;}else if(this.dataset.retry==='2'){this.dataset.retry='3';var f=this.src.split('/').pop();this.src='../../'+f;}else{this.onerror=null;}" />
           锦云
         </span>
         <span class="text-[10px] text-slate-400 font-mono group-hover:text-blue-600">44ms</span>
       </a>
-      <a href={`${homeHref}#jisuyun`} class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
+      <a href={`${homeHref}#jisuyun`} style="order:18" class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
         <span class="flex items-center gap-2 font-semibold">
           <img src="/jisuyun_logo.png" alt="极速" class="w-5 h-5 rounded-md object-cover border border-slate-200/80 shrink-0" onerror="if(!this.dataset.retry){this.dataset.retry='1';var f=this.src.split('/').pop();this.src='./'+f;}else if(this.dataset.retry==='1'){this.dataset.retry='2';var f=this.src.split('/').pop();this.src='../'+f;}else if(this.dataset.retry==='2'){this.dataset.retry='3';var f=this.src.split('/').pop();this.src='../../'+f;}else{this.onerror=null;}" />
           极速
         </span>
         <span class="text-[10px] text-slate-400 font-mono group-hover:text-blue-600">28ms</span>
       </a>
-      <a href={`${homeHref}#xiongmaocloud`} class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
+      <a href={`${homeHref}#xiongmaocloud`} style="order:19" class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
         <span class="flex items-center gap-2 font-semibold">
           <img src="/xiongmaocloud_logo.png" alt="熊猫cloud" class="w-5 h-5 rounded-md object-cover border border-slate-200/80 shrink-0" onerror="if(!this.dataset.retry){this.dataset.retry='1';var f=this.src.split('/').pop();this.src='./'+f;}else if(this.dataset.retry==='1'){this.dataset.retry='2';var f=this.src.split('/').pop();this.src='../'+f;}else if(this.dataset.retry==='2'){this.dataset.retry='3';var f=this.src.split('/').pop();this.src='../../'+f;}else{this.onerror=null;}" />
           熊猫cloud
         </span>
         <span class="text-[10px] text-slate-400 font-mono group-hover:text-blue-600">36ms</span>
       </a>
-      <a href={`${homeHref}#shunyun`} class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
+      <a href={`${homeHref}#shunyun`} style="order:20" class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
         <span class="flex items-center gap-2 font-semibold">
           <img src="/shunyun_logo.png" alt="瞬云" class="w-5 h-5 rounded-md object-cover border border-slate-200/80 shrink-0" onerror="if(!this.dataset.retry){this.dataset.retry='1';var f=this.src.split('/').pop();this.src='./'+f;}else if(this.dataset.retry==='1'){this.dataset.retry='2';var f=this.src.split('/').pop();this.src='../'+f;}else if(this.dataset.retry==='2'){this.dataset.retry='3';var f=this.src.split('/').pop();this.src='../../'+f;}else{this.onerror=null;}" />
           瞬云
         </span>
         <span class="text-[10px] text-slate-400 font-mono group-hover:text-blue-600">52ms</span>
       </a>
-      <a href={`${homeHref}#jiuyun`} class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
+      <a href={`${homeHref}#jiuyun`} style="order:21" class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
         <span class="flex items-center gap-2 font-semibold">
           <img src="/jiuyun_logo.png" alt="九云" class="w-5 h-5 rounded-md object-cover border border-slate-200/80 shrink-0" onerror="if(!this.dataset.retry){this.dataset.retry='1';var f=this.src.split('/').pop();this.src='./'+f;}else if(this.dataset.retry==='1'){this.dataset.retry='2';var f=this.src.split('/').pop();this.src='../'+f;}else if(this.dataset.retry==='2'){this.dataset.retry='3';var f=this.src.split('/').pop();this.src='../../'+f;}else{this.onerror=null;}" />
           九云
         </span>
         <span class="text-[10px] text-slate-400 font-mono group-hover:text-blue-600">48ms</span>
       </a>
-      <a href={`${homeHref}#baoyun`} class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
+      <a href={`${homeHref}#baoyun`} style="order:22" class="flex items-center justify-between p-2.5 bg-slate-50/80 hover:bg-blue-50/80 hover:text-blue-600 rounded-xl transition-all border border-slate-100/60 text-slate-700 font-medium group">
         <span class="flex items-center gap-2 font-semibold">
           <img src="/baoyun_logo.png" alt="宝云" class="w-5 h-5 rounded-md object-cover border border-slate-200/80 shrink-0" onerror="if(!this.dataset.retry){this.dataset.retry='1';var f=this.src.split('/').pop();this.src='./'+f;}else if(this.dataset.retry==='1'){this.dataset.retry='2';var f=this.src.split('/').pop();this.src='../'+f;}else if(this.dataset.retry==='2'){this.dataset.retry='3';var f=this.src.split('/').pop();this.src='../../'+f;}else{this.onerror=null;}" />
           宝云

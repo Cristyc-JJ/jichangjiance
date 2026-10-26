@@ -10,7 +10,7 @@ const depth = segments.length;
 const prefix = depth === 0 ? './' : '../'.repeat(depth);
 
 // 2026稳定翻墙机场排行榜全量收录 (源自 jichang365.com/ranking)
-const airports = [
+const baseAirports = [
   {
     id: 'edgenova',
     name: 'EdgeNova',
@@ -348,6 +348,59 @@ const airports = [
     link: 'https://宝云.com'
   }
 ];
+
+const addedAirports = [
+  {
+    id: 'yunjiexian', name: '云界线', tagline: '跨境专属加速 · 多端稳定连接',
+    desc: '面向日常跨境访问与多设备使用，提供稳定节点和简洁的一键订阅体验。', price: '套餐以官网为准', rating: '9.0', badge: '跨境专线', icon: '08',
+    logo: prefix + 'yunjiexian_logo.png', gradient: 'from-cyan-950 via-blue-950 to-slate-900', ping: '42', pingStatus: '跨境稳定', loss: '0.0', speed: '900', uptime: '99.6', probeNode: '香港优化 01',
+    protocols: ['优化中转', 'V2Ray', 'Trojan'], unlocks: ['ChatGPT', '流媒体', '跨境办公'], link: 'https://youxia01.yunjiexianaff.com/#/?code=Wj8f6Nh4'
+  },
+  {
+    id: 'dalaoyun', name: '大佬云', tagline: '稳定大带宽 · 多场景覆盖',
+    desc: '兼顾高清观影、文件传输和日常办公，提供多地区节点与大带宽连接。', price: '套餐以官网为准', rating: '8.9', badge: '大带宽', icon: '09',
+    logo: prefix + 'dalaoyun_logo.png', gradient: 'from-indigo-950 via-purple-950 to-slate-900', ping: '44', pingStatus: '大带宽稳定', loss: '0.0', speed: '920', uptime: '99.5', probeNode: '日本优化 01',
+    protocols: ['BGP中转', 'VLESS', 'Trojan'], unlocks: ['4K视频', 'ChatGPT', '多端支持'], link: 'https://liu01.dalaoyunaff.com/#/?code=LqIwc3Nf'
+  },
+  {
+    id: 'huanqiuti', name: '环球梯', tagline: '全球多区节点 · 灵活切换',
+    desc: '覆盖常用海外地区，适合需要多地区访问、流媒体与跨境业务测试的用户。', price: '套餐以官网为准', rating: '8.8', badge: '全球节点', icon: '10',
+    logo: prefix + 'huanqiuti_logo.png', gradient: 'from-blue-950 via-teal-950 to-slate-900', ping: '46', pingStatus: '多区覆盖', loss: '0.0', speed: '880', uptime: '99.5', probeNode: '新加坡优化 01',
+    protocols: ['多区中转', 'V2Ray', 'Shadowsocks'], unlocks: ['Netflix', 'YouTube', 'AI工具'], link: 'https://123pps01.huanqiutiaff.com/#/?code=1T3PsUTF'
+  },
+  {
+    id: 'shandianshu', name: '闪电鼠', tagline: '快速连接 · 新手一键订阅',
+    desc: '强调快速连接和简单配置，适合希望少折腾、跨平台直接导入订阅的新用户。', price: '套餐以官网为准', rating: '8.7', badge: '快速连接', icon: '11',
+    logo: prefix + 'shandianshu_logo.png', gradient: 'from-amber-950 via-orange-950 to-slate-900', ping: '39', pingStatus: '快速握手', loss: '0.0', speed: '890', uptime: '99.4', probeNode: '台湾优化 01',
+    protocols: ['V2Ray', 'Trojan', 'Shadowsocks'], unlocks: ['YouTube 4K', 'ChatGPT', '一键导入'], link: 'https://eothvip01.shandianshuaff.com/#/?code=EfJpujr9'
+  },
+  {
+    id: 'liulianyun', name: '榴莲云', tagline: '丝滑稳定 · 大流量体验',
+    desc: '主打大流量与持续使用体验，适合高清流媒体、下载和多设备日常使用。', price: '套餐以官网为准', rating: '8.6', badge: '大流量', icon: '12',
+    logo: prefix + 'liulianyun_logo.png', gradient: 'from-yellow-950 via-emerald-950 to-slate-900', ping: '45', pingStatus: '大流量稳定', loss: '0.0', speed: '930', uptime: '99.4', probeNode: '香港优化 02',
+    protocols: ['BGP中转', 'VLESS', 'SS'], unlocks: ['4K视频', 'Disney+', 'ChatGPT'], link: 'http://853vip01.liulianyunaff.com/#/?code=cFwn3C3v'
+  },
+  {
+    id: 'shenxing', name: '神行加速', tagline: '低延迟专线 · 游戏办公兼顾',
+    desc: '针对延迟和抖动进行优化，兼顾游戏、实时会议以及日常跨境访问需求。', price: '套餐以官网为准', rating: '8.5', badge: '低延迟', icon: '13',
+    logo: prefix + 'shenxing_logo.png', gradient: 'from-slate-950 via-blue-950 to-indigo-950', ping: '36', pingStatus: '低延迟优化', loss: '0.0', speed: '900', uptime: '99.4', probeNode: '日本低延迟 01',
+    protocols: ['专线优化', 'V2Ray', 'Trojan'], unlocks: ['游戏加速', 'ChatGPT', '视频会议'], link: 'https://fugui0077.shenxingaff.com/#/?code=5L345JjO'
+  }
+];
+
+const airportPool = [...baseAirports, ...addedAirports];
+const rankingOrder = [
+  'edgenova', 'jilianyun', 'guangnianti', 'liyun', 'sujie', 'kuaili', 'kexinyun',
+  'yunjiexian', 'dalaoyun', 'huanqiuti', 'shandianshu', 'liulianyun', 'shenxing',
+  'shanshuiyun', 'miaomiaoyun', 'yuntu', 'jinyun', 'jisuyun', 'xiongmaocloud', 'shunyun', 'jiuyun', 'baoyun'
+];
+const airports = rankingOrder.map((id, index) => {
+  const airport = airportPool.find(item => item.id === id)!;
+  const label = airport.badge.replace(/^NO\.\d+\s*/, '');
+  return { ...airport, icon: String(index + 1).padStart(2, '0'), badge: `NO.${String(index + 1).padStart(2, '0')} ${label}` };
+});
+// 首页视觉轮盘使用完整榜单，包括本次新增的六个品牌。
+const wheelAirports = airports;
 ---
 
 <BaseLayout
@@ -483,7 +536,7 @@ const airports = [
               }
             </style>
             <div class="absolute inset-0 z-10 orbit-ring-spin">
-              {airports.map((ap, idx) => {
+              {wheelAirports.map((ap, idx) => {
                 const angle = (idx * (360 / airports.length)).toFixed(1);
                 return (
                   <div class="orbit-item" style={`position: absolute; top: 50%; left: 50%; width: 56px; height: 56px; margin-top: -28px; margin-left: -28px; transform: rotate(${angle}deg) translate(145px); --angle: ${angle}deg;`}>

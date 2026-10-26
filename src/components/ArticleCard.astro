@@ -7,10 +7,14 @@ interface Props {
 }
 
 const { article, showExcerpt = true } = Astro.props;
+const cleanPath = Astro.url.pathname.replace(/^\//, '').replace(/\/$/, '');
+const depth = cleanPath ? cleanPath.split('/').length : 0;
+const prefix = depth === 0 ? './' : '../'.repeat(depth);
+const articleHref = `${prefix}blog/${article.slug}/index.html`;
 ---
 
 <article class="bg-white rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md hover:border-blue-300 transition-all p-6 group flex flex-col justify-between">
-  <a href={`/blog/${article.slug}/`} class="block space-y-3 no-underline">
+  <a href={articleHref} class="block space-y-3 no-underline">
     <!-- 分类标签 -->
     <div class="flex items-center justify-between">
       <span class="px-2.5 py-1 text-xs font-mono font-bold text-blue-700 bg-blue-50 border border-blue-200 rounded-md">
