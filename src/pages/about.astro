@@ -7,7 +7,7 @@ import RightSidebar from '@/components/RightSidebar.astro';
 ---
 
 <BaseLayout
-  title="关于我们 - 2026 机场检测观察"
+  title="关于机场检测观察：2026机场推荐、节点测速与评测标准"
   description="了解机场检测观察分布式探针建设初衷、实时测速评测标准与站点定位。"
 >
   <Header />
@@ -32,7 +32,7 @@ import RightSidebar from '@/components/RightSidebar.astro';
         
         <!-- Header Banner -->
         <div class="relative w-full bg-gradient-to-br from-blue-50/90 via-indigo-50/60 to-slate-50 border border-blue-200/80 rounded-3xl p-6 sm:p-8 text-slate-800 shadow-xs">
-          <h1 class="text-2xl sm:text-4xl font-black text-slate-900 mb-2">关于机场检测观察</h1>
+          <h1 class="text-2xl sm:text-4xl font-black text-slate-900 mb-2">关于机场检测观察：2026 机场推荐、节点测速与评测标准</h1>
           <p class="text-sm sm:text-base text-slate-600 font-medium">以数据说话 · 拒绝隐形高倍率 · 专注于 2026 稳定专线机场真实实测</p>
         </div>
 
@@ -53,6 +53,123 @@ import RightSidebar from '@/components/RightSidebar.astro';
             <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-1">
               <h3 class="font-bold text-slate-900 text-sm">真实 1.0x 计费核验</h3>
               <p class="text-xs text-slate-500">严查恶意虚标高倍率扣费，推荐最具性价比的诚实服务商。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          <div class="bg-white rounded-2xl border border-blue-100 p-4 text-center shadow-xs">
+            <div class="text-2xl font-black text-blue-600">24h</div>
+            <div class="mt-1 text-xs font-bold text-slate-700">连续状态观察</div>
+          </div>
+          <div class="bg-white rounded-2xl border border-blue-100 p-4 text-center shadow-xs">
+            <div class="text-2xl font-black text-blue-600">4 项</div>
+            <div class="mt-1 text-xs font-bold text-slate-700">核心检测维度</div>
+          </div>
+          <div class="bg-white rounded-2xl border border-blue-100 p-4 text-center shadow-xs">
+            <div class="text-2xl font-black text-blue-600">多时段</div>
+            <div class="mt-1 text-xs font-bold text-slate-700">工作日与晚高峰</div>
+          </div>
+          <div class="bg-white rounded-2xl border border-blue-100 p-4 text-center shadow-xs">
+            <div class="text-2xl font-black text-blue-600">可复核</div>
+            <div class="mt-1 text-xs font-bold text-slate-700">结论与条件分开</div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-xs space-y-5">
+          <h2 class="text-xl font-black text-slate-900 flex items-center gap-2">
+            <span class="w-2 h-6 bg-blue-600 rounded-full inline-block"></span>
+            <span>我们具体检测什么</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            单次测速无法代表长期体验。我们更关注线路在不同网络、不同时间和不同任务中的持续表现，并把“速度快”拆分成可以理解、可以复查的指标。
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/70 space-y-2">
+              <h3 class="text-sm font-black text-slate-900">连通率与故障恢复</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">记录节点能否连接、故障持续时间、备用入口是否可用，以及维护后恢复速度，避免只展示正常时段。</p>
+            </div>
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/70 space-y-2">
+              <h3 class="text-sm font-black text-slate-900">延迟、抖动与丢包</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">延迟决定响应速度，抖动和丢包影响视频通话、游戏及长连接。我们不会只用最低延迟代表全部体验。</p>
+            </div>
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/70 space-y-2">
+              <h3 class="text-sm font-black text-slate-900">晚高峰吞吐表现</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">重点观察晚间拥堵时段的下载、上传和持续吞吐，区分短时测速峰值与真实长时间使用能力。</p>
+            </div>
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/70 space-y-2">
+              <h3 class="text-sm font-black text-slate-900">AI 与流媒体可用性</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">结合目标地区、IP 风险和平台限制测试访问结果。平台规则会变化，因此解锁结论均具有时间和节点条件。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-xs space-y-5">
+          <h2 class="text-xl font-black text-slate-900 flex items-center gap-2">
+            <span class="w-2 h-6 bg-blue-600 rounded-full inline-block"></span>
+            <span>测评流程与更新机制</span>
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="relative p-4 rounded-xl bg-blue-50/70 border border-blue-100">
+              <span class="text-[11px] font-mono font-black text-blue-600">STEP 01</span>
+              <h3 class="mt-2 text-sm font-black text-slate-900">建立样本</h3>
+              <p class="mt-1 text-xs text-slate-600 leading-relaxed">记录套餐、倍率、节点地区、线路说明与测试网络，先明确比较条件。</p>
+            </div>
+            <div class="relative p-4 rounded-xl bg-blue-50/70 border border-blue-100">
+              <span class="text-[11px] font-mono font-black text-blue-600">STEP 02</span>
+              <h3 class="mt-2 text-sm font-black text-slate-900">分时检测</h3>
+              <p class="mt-1 text-xs text-slate-600 leading-relaxed">覆盖白天、晚高峰和周末，减少单次偶然结果对结论的影响。</p>
+            </div>
+            <div class="relative p-4 rounded-xl bg-blue-50/70 border border-blue-100">
+              <span class="text-[11px] font-mono font-black text-blue-600">STEP 03</span>
+              <h3 class="mt-2 text-sm font-black text-slate-900">交叉复核</h3>
+              <p class="mt-1 text-xs text-slate-600 leading-relaxed">对照公告、路由、账单倍率和实际任务，检查宣传信息是否与体验一致。</p>
+            </div>
+            <div class="relative p-4 rounded-xl bg-blue-50/70 border border-blue-100">
+              <span class="text-[11px] font-mono font-black text-blue-600">STEP 04</span>
+              <h3 class="mt-2 text-sm font-black text-slate-900">持续修订</h3>
+              <p class="mt-1 text-xs text-slate-600 leading-relaxed">线路、价格或服务状态变化后更新页面，不把历史结论永久当作当前事实。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-xs space-y-4">
+            <h2 class="text-xl font-black text-slate-900 flex items-center gap-2">
+              <span class="w-2 h-6 bg-blue-600 rounded-full inline-block"></span>
+              <span>内容与推荐原则</span>
+            </h2>
+            <ul class="space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <li class="flex gap-2"><span class="text-blue-600 font-black">01</span><span><strong class="text-slate-900">场景优先：</strong>同一服务不可能适合所有人，推荐会区分新手、流媒体、AI、跨境办公与备用线路需求。</span></li>
+              <li class="flex gap-2"><span class="text-blue-600 font-black">02</span><span><strong class="text-slate-900">条件透明：</strong>注明测试时间、网络和节点条件，不把局部结果包装成绝对结论。</span></li>
+              <li class="flex gap-2"><span class="text-blue-600 font-black">03</span><span><strong class="text-slate-900">风险提示：</strong>明确套餐倍率、退款规则、账号安全、长期订阅和服务中断风险。</span></li>
+              <li class="flex gap-2"><span class="text-blue-600 font-black">04</span><span><strong class="text-slate-900">允许修正：</strong>发现数据过期、链接异常或描述不准确时及时调整，不隐藏历史判断可能存在的偏差。</span></li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-xs space-y-4">
+            <h2 class="text-xl font-black text-slate-900 flex items-center gap-2">
+              <span class="w-2 h-6 bg-blue-600 rounded-full inline-block"></span>
+              <span>商业关系与免责声明</span>
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              部分页面可能包含推广或返佣链接，这不会改变用户实际支付价格。站点会尽量把服务事实、编辑判断和推广入口分开呈现，但任何第三方服务都可能出现价格调整、节点维护、规则变化或停止运营。
+            </p>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              本站提供的是信息整理、测试观察与使用教程，不承诺某项服务永久可用，也不替代用户对当地法律、平台条款和自身数据安全的判断。建议先选择短周期、低成本方案完成实际测试，再决定是否长期使用。
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-6 sm:p-8 text-white shadow-sm">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+            <div>
+              <h2 class="text-xl sm:text-2xl font-black">发现数据或页面问题？</h2>
+              <p class="mt-2 text-xs sm:text-sm text-blue-100 leading-relaxed">如果你发现链接失效、价格变化、节点状态异常或教程步骤过期，可以通过站内相关页面反馈。请附上页面名称、发现时间和可复现现象，便于快速核查。</p>
+            </div>
+            <div class="flex flex-wrap gap-3 shrink-0">
+              <a href="../faq/index.html" class="px-4 py-2.5 rounded-xl bg-white text-blue-700 text-xs sm:text-sm font-black no-underline hover:bg-blue-50">查看常见问题</a>
+              <a href="../html-sitemap/index.html" class="px-4 py-2.5 rounded-xl border border-white/50 text-white text-xs sm:text-sm font-black no-underline hover:bg-white/10">浏览全部内容</a>
             </div>
           </div>
         </div>

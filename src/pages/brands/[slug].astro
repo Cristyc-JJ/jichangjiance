@@ -19,10 +19,11 @@ const { brand } = Astro.props;
 
 // 示例：相关文章
 const relatedArticles = articles.slice(0, 3);
+const brandSeoTitle = `${brand.name}机场怎么样？2026 套餐价格、线路、测速与优惠码`;
 ---
 
 <BaseLayout
-  title={`${brand.name} - 品牌库 - 机场检测观察`}
+  title={`${brandSeoTitle} - 机场检测观察`}
   description={brand.description}
 >
   <Header />
@@ -65,7 +66,7 @@ const relatedArticles = articles.slice(0, 3);
                 <img src={`../../${brand.logo}`} alt={brand.name} class="w-12 h-12 rounded-xl object-cover border border-slate-200 shadow-2xs shrink-0" onerror="if(!this.dataset.retry){this.dataset.retry='1';var f=this.src.split('/').pop();this.src='./'+f;}else if(this.dataset.retry==='1'){this.dataset.retry='2';var f=this.src.split('/').pop();this.src='../'+f;}else if(this.dataset.retry==='2'){this.dataset.retry='3';var f=this.src.split('/').pop();this.src='../../'+f;}else if(this.dataset.retry==='3'){this.dataset.retry='4';var f=this.src.split('/').pop();this.src='/'+f;}" />
               )}
               <div>
-                <h1 class="text-3xl sm:text-4xl font-black text-slate-900 mb-1">{brand.name}</h1>
+                <h1 class="text-3xl sm:text-4xl font-black text-slate-900 mb-1">{brandSeoTitle}</h1>
                 <p class="text-base text-slate-600">{brand.description}</p>
               </div>
             </div>

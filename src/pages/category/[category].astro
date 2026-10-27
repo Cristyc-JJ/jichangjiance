@@ -16,10 +16,28 @@ export function getStaticPaths() {
 
 const { category } = Astro.props;
 const articles = getArticlesByCategory(category);
+const categorySeoTitles: Record<string, string> = {
+  '新手教程': '2026 科学上网新手教程：机场选择、订阅与客户端入门',
+  '使用教程': '2026 机场使用教程：订阅导入、节点选择与常见设置',
+  '客户端教程': '2026 科学上网客户端教程：Clash、小火箭与 V2Ray 配置',
+  '评测对比': '2026 机场评测对比：套餐价格、线路质量与节点测速',
+  '问题解答': '2026 机场与科学上网问题解答：连接、订阅与节点排障',
+  '进阶技巧': '2026 科学上网进阶技巧：分流规则、测速与性能优化',
+  'Apple ID 专题': '2026 美区 Apple ID 专题：共享账号、注册与 App Store 登录',
+  '选购与推荐': '2026 机场推荐与选购指南：稳定、高速、性价比机场怎么选',
+  '年度指南': '2026 机场推荐年度指南：主流机场排行与选择建议',
+  '线路与架构': '2026 机场线路与架构：IPLC、IEPL、BGP 与专线解析',
+  '价格与套餐': '2026 机场价格与套餐对比：月付、流量倍率与性价比',
+  '客户端生态': '2026 机场客户端生态：Clash、Sing-box、小火箭与 V2Ray',
+  '流媒体与 AI': '2026 流媒体与 AI 机场推荐：Netflix、ChatGPT 与 Claude 解锁',
+  '跨境商业': '2026 跨境电商与外贸专线：固定 IP、稳定线路与业务安全',
+  '评测与排行': '2026 机场排行榜与测速评测：晚高峰、稳定性与可靠性对比',
+};
+const categorySeoTitle = categorySeoTitles[category] || `${category}：2026 机场推荐、评测与使用指南`;
 ---
 
 <BaseLayout
-  title={`${category} - 机场检测观察专栏`}
+  title={`${categorySeoTitle} - 机场检测观察`}
   description={`浏览所有 ${category} 相关的文章、深度测评与客户端配置教程。`}
 >
   <Header />
@@ -46,7 +64,7 @@ const articles = getArticlesByCategory(category);
         
         <!-- Header Banner -->
         <div class="relative w-full bg-gradient-to-br from-blue-50/90 via-indigo-50/60 to-slate-50 border border-blue-200/80 rounded-3xl p-6 sm:p-8 text-slate-800 shadow-xs">
-          <h1 class="text-2xl sm:text-4xl font-black text-slate-900 mb-2">{category} 专栏</h1>
+          <h1 class="text-2xl sm:text-4xl font-black text-slate-900 mb-2">{categorySeoTitle}</h1>
           <p class="text-sm sm:text-base text-slate-600 font-medium">包含该分类下的权威测评文章、选购建议与技术参数分析</p>
 
           <!-- 分类筛选 Quick Filter -->

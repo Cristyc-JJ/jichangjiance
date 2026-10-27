@@ -17,6 +17,15 @@ export function getStaticPaths() {
 
 const { topic } = Astro.props;
 const isAiTools = topic.slug === 'ai-tools';
+const topicSeoTitles: Record<string, string> = {
+  'client-guides': '2026 科学上网客户端教程：Clash、小火箭、Sing-box 与 V2Ray',
+  'ai-tools': 'ChatGPT 与 Claude 专用机场推荐：2026 AI 工具稳定访问指南',
+  'streaming-unlock': '2026 流媒体解锁机场推荐：Netflix、Disney+ 与 YouTube 4K',
+  'beginner-guide': '2026 科学上网新手入门：机场选择、订阅与客户端配置',
+  'advanced-tips': '2026 科学上网进阶技巧：分流规则、测速与故障排查',
+  'security-privacy': '2026 科学上网安全与隐私指南：账号、IP 与客户端防护',
+};
+const topicSeoTitle = topicSeoTitles[topic.slug] || `${topic.title}：2026 机场推荐专题指南`;
 
 // 获取该专题下的文章
 const topicArticles = articles.filter(a => a.tags.some(t => ['ChatGPT', 'Claude', 'AI工具', 'IP纯净度'].includes(t)) || a.category === '使用教程');
@@ -41,7 +50,7 @@ const mirrorList = [
 ---
 
 <BaseLayout
-  title={isAiTools ? "ChatGPT与Claude专用机场推荐：2026原生住宅IP完美解锁AI工具指南 - 机场检测观察" : `${topic.title} - 机场检测观察专题`}
+  title={`${topicSeoTitle} - 机场检测观察`}
   description={isAiTools ? "2026年 AI 工具实战使用完整指南：包含 ChatGPT、Claude、Gemini、Grok、Midjourney、Cursor 等主流 AI 工具的国内访问方法、国内免翻墙镜像站推荐及商业纯净 IP 节点挑选指南。" : topic.description}
 >
   <Header />
@@ -72,7 +81,7 @@ const mirrorList = [
           <div class="relative z-10">
             <span class="px-3 py-1 bg-cyan-500/20 border border-cyan-400/40 text-cyan-300 text-xs font-mono font-bold rounded-full inline-block mb-3">2026 AI TOOLS HUB</span>
             <h1 class="text-2xl sm:text-4xl font-black tracking-tight mb-2">
-              {isAiTools ? "ChatGPT 与 Claude 专用机场推荐：2026 原生住宅 IP 完美解锁 AI 工具指南" : topic.title}
+              {topicSeoTitle}
             </h1>
             <p class="text-sm sm:text-base text-slate-300 max-w-3xl leading-relaxed font-medium">
               {isAiTools ? "包含 ChatGPT (GPT-4o/o1)、Claude 3.5 Sonnet、Google Gemini、Midjourney 等 15 款主流 AI 工具的网络要求、IP 敏感度与国内免翻墙镜像站实测建议。" : topic.description}

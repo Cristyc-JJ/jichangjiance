@@ -21,10 +21,14 @@ export function getStaticPaths() {
 
 const { tag } = Astro.props;
 const tagArticles = getArticlesByTag(tag);
+const appleIdTag = /apple\s*id|美区id|美区apple/i.test(tag);
+const tagSeoTitle = appleIdTag
+  ? `${tag}：2026 Apple ID 使用教程与常见问题`
+  : `${tag}：2026 机场推荐、评测与使用指南`;
 ---
 
 <BaseLayout
-  title={`#${tag} - 机场检测观察`}
+  title={`${tagSeoTitle} - 机场检测观察`}
   description={`浏览所有包含"${tag}"标签的文章。`}
 >
   <Header />
@@ -53,7 +57,7 @@ const tagArticles = getArticlesByTag(tag);
         <div class="relative w-full bg-gradient-to-br from-blue-50/90 via-indigo-50/60 to-slate-50 border border-blue-200/80 rounded-3xl p-6 sm:p-8 text-slate-800 shadow-xs">
           <div class="flex items-center gap-3 mb-2">
             <span class="text-3xl sm:text-4xl text-blue-600 font-black">#</span>
-            <h1 class="text-2xl sm:text-4xl font-black text-slate-900">{tag} 标签专栏</h1>
+            <h1 class="text-2xl sm:text-4xl font-black text-slate-900">{tagSeoTitle}</h1>
           </div>
           <p class="text-sm sm:text-base text-slate-600 font-medium">共 {tagArticles.length} 篇相关精选教程与评测指南</p>
         </div>
